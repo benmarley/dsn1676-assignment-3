@@ -17,9 +17,8 @@ html {
   box-sizing: inherit;
 }
 
-body {
-	background-image: url("../images/stars.svg"); 
-	background-color:black;
+body {	
+	background-color: black; 
 }
 
 .asteroid {
@@ -27,8 +26,22 @@ body {
 	position: absolute;
 	top: 8em;
 	left: 8em;
+	-webkit-animation: asteroid-rotate 3s linear infinite;
 	animation: asteroid-rotate 3s linear infinite;
+	-webkit-transform-origin: center;
 	transform-origin: center;
+}
+
+@-webkit-keyframes asteroid-rotate {
+
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+
+	100%{
+		-webkit-transform: rotate(360deg);
+	}
+
 }
 
 @keyframes asteroid-rotate {
@@ -45,6 +58,87 @@ body {
 
 
 .spaceship {
-	width: 100px;
+	width: 150px;
+	position: absolute;
+	top: 10em;
+	left: 30em;
+	-webkit-animation: ship-travel 10s linear infinite alternate	;
+	animation: ship-travel 10s linear infinite alternate;
+}
+
+@-webkit-keyframes ship-travel {
+	0% {
+		-webkit-transform: translateY(0px);
+	}
+	20% {
+		-webkit-transform: translateY(200px) 
+	}
+	40% {
+		-webkit-transform: translateY(-90px) translateX(-100px);
+	}
+	60% {
+		-webkit-transform: translateY(200px) translateX(300px);
+	}
+	80% {
+		-webkit-transform: translateX(30px);
+	}
+	100% {
+		-webkit-transform: translateY(100px) translateX(100px);
+	}
+}
+
+@keyframes ship-travel {
+	0% {
+		transform: translateY(0px);
+	}
+	20% {
+		transform: translateY(200px) 
+	}
+	40% {
+		transform: translateY(-90px) translateX(-100px);
+	}
+	60% {
+		transform: translateY(200px) translateX(300px);
+	}
+	80% {
+		transform: translateX(30px);
+	}
+	100% {
+		transform: translateY(100px) translateX(100px);
+	}
+}
+
+.stars {
+	background-image: url("../images/stars.svg");
+	height: 100vh;
+	-webkit-animation: star-move 15s linear infinite alternate; 
+	animation: star-move 15s linear infinite alternate;
+}
+
+@-webkit-keyframes star-move {
+
+	0% {
+		-webkit-transform: scale(1,1);
+
+	}
+
+	100% {
+		-webkit-transform: scale(2,2);
+
+	}
+
+}
+
+@keyframes star-move {
+
+	0% {
+		transform: scale(1,1);
+
+	}
+
+	100% {
+		transform: scale(2,2);
+
+	}
 
 }
